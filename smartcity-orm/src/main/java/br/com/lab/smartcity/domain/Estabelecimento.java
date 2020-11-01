@@ -12,7 +12,6 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.Formula;
 
 @Entity
 @Table(name = "tbl_estabelecimento")
@@ -31,8 +30,8 @@ public class Estabelecimento {
 	@Column(name = "dh_criacao")
 	private Calendar dataCriacao;
 
-	@Formula("(select avg(a.nota)+1 from avaliacao a where a.id_estabelecimento = id_estabelecimento)")
-	private Double mediaAvaliacoes;
+	//@Formula("(select avg(a.nota)+1 from avaliacao a where a.id_estabelecimento = id_estabelecimento)")
+	//private Double mediaAvaliacoes;
 	
 
 	public Integer getId() {
@@ -60,11 +59,4 @@ public class Estabelecimento {
 		this.dataCriacao = dataCriacao;
 	}
 
-	public Double getMediaAvaliacoes() {
-		return mediaAvaliacoes;
-	}
-
-	public void setMediaAvaliacoes(Double mediaAvaliacoes) {
-		this.mediaAvaliacoes = mediaAvaliacoes;
-	}
 }
