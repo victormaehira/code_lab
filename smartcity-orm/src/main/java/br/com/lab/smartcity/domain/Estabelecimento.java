@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -32,7 +34,10 @@ public class Estabelecimento {
 
 	//@Formula("(select avg(a.nota)+1 from avaliacao a where a.id_estabelecimento = id_estabelecimento)")
 	//private Double mediaAvaliacoes;
-	
+    @JoinColumn(name = "id_tipo_estabelecimento")
+	@ManyToOne
+	private TipoEstabelecimento tipo;
+
 
 	public Integer getId() {
 		return id;
@@ -57,6 +62,14 @@ public class Estabelecimento {
 
 	public void setDataCriacao(Calendar dataCriacao) {
 		this.dataCriacao = dataCriacao;
+	}
+
+	public TipoEstabelecimento getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(TipoEstabelecimento tipo) {
+		this.tipo = tipo;
 	}
 
 }

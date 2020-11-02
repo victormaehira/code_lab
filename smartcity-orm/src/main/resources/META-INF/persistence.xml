@@ -8,6 +8,7 @@
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <!-- <provider>org.hibernate.ejb.HibernatePersistence</provider> -->
         <class>br.com.lab.smartcity.domain.Estabelecimento</class>
+        <class>br.com.lab.smartcity.domain.TipoEstabelecimento</class>
 
         <properties>
         

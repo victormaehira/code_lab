@@ -17,7 +17,9 @@ public class App
 		CreateEstabelecimentoTest.test();
 		FindEstabelecimentoTest.test();
 		UpdateEstabelecimentoTest.test();
-		//DeleteEstabelecimentoTest.test();
+		DeleteEstabelecimentoTest.test();
+		System.out.println("Fim");
+		System.exit(0);
 	}
 }
 

@@ -14,11 +14,15 @@ public class DeleteEstabelecimentoTest {
 
 			em.getTransaction().begin();
 
-			Estabelecimento recuperado = em.find(Estabelecimento.class, 1);
-			em.remove(recuperado);
-
+			Estabelecimento queroSerExcluido = new Estabelecimento();
+			queroSerExcluido.setNome("Fui...");
+			em.persist(queroSerExcluido);
+			em.flush();
+			
+			//Estabelecimento recuperado = em.find(Estabelecimento.class, 1);
+			em.remove(queroSerExcluido);
+			
 			em.getTransaction().commit();
-
 		} catch (Exception e) {
 			System.out.println("Error " + e.getMessage());
 			e.printStackTrace();
