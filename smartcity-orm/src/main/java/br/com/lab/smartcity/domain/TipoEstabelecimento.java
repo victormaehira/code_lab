@@ -19,7 +19,7 @@ public class TipoEstabelecimento {
 	@Column(name = "id_tipo_estabelecimento")
 	private Integer id;
 	
-	@Column(name = "nome_tipo_estabelecimento", length=25, nullable=false)
+	@Column(name = "nm_tipo_estabelecimento", length=25, nullable=false)
 	private String nome;
 	
 	@OneToMany(mappedBy = "tipo")

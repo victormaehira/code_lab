@@ -9,6 +9,7 @@
         <!-- <provider>org.hibernate.ejb.HibernatePersistence</provider> -->
         <class>br.com.lab.smartcity.domain.Estabelecimento</class>
         <class>br.com.lab.smartcity.domain.TipoEstabelecimento</class>
+        <class>br.com.lab.smartcity.domain.ContratoAluguel</class>
 
         <properties>
         

@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -24,12 +25,12 @@ public class Estabelecimento {
 	@Column(name = "id_estabelecimento")
 	private Integer id;
 
-	@Column(name = "nome_estabelecimento", length = 50)
+	@Column(name = "nm_estabelecimento", length = 50)
 	private String nome;
 
 	@CreationTimestamp
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "dh_criacao")
+	@Column(name = "dt_criacao")
 	private Calendar dataCriacao;
 
 	//@Formula("(select avg(a.nota)+1 from avaliacao a where a.id_estabelecimento = id_estabelecimento)")
@@ -37,7 +38,10 @@ public class Estabelecimento {
     @JoinColumn(name = "id_tipo_estabelecimento")
 	@ManyToOne
 	private TipoEstabelecimento tipo;
-
+    
+    //qdo eh bidirecional, precisa do mappedBy
+    @OneToOne(mappedBy="estabelecimento")
+    private ContratoAluguel contrato;
 
 	public Integer getId() {
 		return id;
@@ -70,6 +74,14 @@ public class Estabelecimento {
 
 	public void setTipo(TipoEstabelecimento tipo) {
 		this.tipo = tipo;
+	}
+
+	public ContratoAluguel getContrato() {
+		return contrato;
+	}
+
+	public void setContrato(ContratoAluguel contrato) {
+		this.contrato = contrato;
 	}
 
 }
