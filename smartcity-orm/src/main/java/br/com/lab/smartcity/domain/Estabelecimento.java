@@ -1,6 +1,7 @@
 package br.com.lab.smartcity.domain;
 
 import java.util.Calendar;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -42,6 +45,12 @@ public class Estabelecimento {
     //qdo eh bidirecional, precisa do mappedBy
     @OneToOne(mappedBy="estabelecimento")
     private ContratoAluguel contrato;
+    
+    @ManyToMany
+    @JoinTable(joinColumns=@JoinColumn(name="id_estabelecimento"),
+    inverseJoinColumns=@JoinColumn(name="id_cliente"), 
+    name="tb_cliente_estabelecimento")
+    private List<Cliente> clientes;
 
 	public Integer getId() {
 		return id;
@@ -82,6 +91,14 @@ public class Estabelecimento {
 
 	public void setContrato(ContratoAluguel contrato) {
 		this.contrato = contrato;
+	}
+
+	public List<Cliente> getClientes() {
+		return clientes;
+	}
+
+	public void setClientes(List<Cliente> clientes) {
+		this.clientes = clientes;
 	}
 
 }
