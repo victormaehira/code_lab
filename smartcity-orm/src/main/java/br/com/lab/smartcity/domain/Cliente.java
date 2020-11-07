@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
@@ -15,7 +16,9 @@ import javax.persistence.Table;
 public class Cliente {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	//@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@SequenceGenerator(name="cliente", sequenceName= "sq_tb_cliente", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator="cliente")
 	@Column(name = "id_cliente")
 	private int id;
 	
@@ -47,5 +50,17 @@ public class Cliente {
 
 	public void setEstabelecimentos(List<Estabelecimento> estabelecimentos) {
 		this.estabelecimentos = estabelecimentos;
+	}
+
+	public Cliente(int id, String nome, List<Estabelecimento> estabelecimentos) {
+		super();
+		this.id = id;
+		this.nome = nome;
+		this.estabelecimentos = estabelecimentos;
+	}
+
+	public Cliente() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 }

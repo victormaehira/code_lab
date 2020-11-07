@@ -11,6 +11,7 @@
         <class>br.com.lab.smartcity.domain.TipoEstabelecimento</class>
         <class>br.com.lab.smartcity.domain.ContratoAluguel</class>
         <class>br.com.lab.smartcity.domain.Cliente</class>
+        <class>br.com.lab.smartcity.domain.Pessoa</class>
 
         <properties>
         

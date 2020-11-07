@@ -4,22 +4,21 @@ import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 
 import br.com.lab.smartcity.domain.Estabelecimento;
+import br.com.lab.smartcity.domain.Pessoa;
 
-public class CreateEstabelecimentoTest {
+public class CreatePessoaTest {
 	public static void test() {
-		System.out.println(">CreateEstabelecimentoTest");
+		System.out.println(">CreatePessoaTest");
+		
 		EntityManager em = null;
 		try {
 			em = Persistence.createEntityManagerFactory("smartcity").createEntityManager();
 
 			em.getTransaction().begin();
-
-			Estabelecimento novo = new Estabelecimento();
-			novo.setNome("Escolinha Imaginação");
-			//Estabelecimento novo = new Estabelecimento(0, "teste", null, null, null);
-
-			em.persist(novo);
-
+			//Pessoa pessoa = new Pessoa();
+			Pessoa pessoa = new Pessoa(0, "Teste");
+			
+			em.persist(pessoa);
 			em.getTransaction().commit();
 
 		} catch (Exception e) {

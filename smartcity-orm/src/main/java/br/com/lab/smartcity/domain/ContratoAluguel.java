@@ -60,4 +60,17 @@ public class ContratoAluguel {
 	public void setEstabelecimento(Estabelecimento estabelecimento) {
 		this.estabelecimento = estabelecimento;
 	}
+
+	public ContratoAluguel() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public ContratoAluguel(int id, float valor, Calendar dataVencimeto, Estabelecimento estabelecimento) {
+		super();
+		this.id = id;
+		this.valor = valor;
+		this.dataVencimeto = dataVencimeto;
+		this.estabelecimento = estabelecimento;
+	}
 }
