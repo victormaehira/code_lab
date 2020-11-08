@@ -11,8 +11,17 @@ public class FindEstabelecimentoTest {
 		EntityManager em = null;
 
 		em = Persistence.createEntityManagerFactory("smartcity").createEntityManager();
-
-		Estabelecimento recuperado = em.find(Estabelecimento.class, 1);
+		em.getTransaction().begin();
+		
+		Estabelecimento novo = new Estabelecimento();
+		novo.setNome("Vou ser recuperado");
+		em.persist(novo);
+		em.flush();
+		em.getTransaction().commit();
+		
+		
+		//Estabelecimento recuperado = em.find(Estabelecimento.class, 1);
+		Estabelecimento recuperado = em.find(Estabelecimento.class, novo.getId());
 		System.out.println(recuperado.getNome());
 	}
 }

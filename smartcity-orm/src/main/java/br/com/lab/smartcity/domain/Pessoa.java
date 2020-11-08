@@ -1,19 +1,24 @@
 package br.com.lab.smartcity.domain;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.SequenceGenerator;
 
 @Entity
+@Inheritance(strategy=InheritanceType.JOINED)
 public class Pessoa {
 	@Id
-	@SequenceGenerator(name="pessoa", sequenceName= "sq_tb_pessoa", allocationSize = 1)
+	@SequenceGenerator(name="pessoa", sequenceName= "sq_pessoa", allocationSize = 1)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator="pessoa")
 	//@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private int id;
 	
+	@Column(length=50, nullable=false)
 	private String nome;
 
 

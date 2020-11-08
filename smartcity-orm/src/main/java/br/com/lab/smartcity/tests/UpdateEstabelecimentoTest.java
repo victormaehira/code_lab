@@ -13,9 +13,14 @@ public class UpdateEstabelecimentoTest {
 			em = Persistence.createEntityManagerFactory("smartcity").createEntityManager();
 
 			em.getTransaction().begin();
+			
+			Estabelecimento queroSerAlterado = new Estabelecimento();
+			queroSerAlterado.setNome("Vou ser alterado...");
+			em.persist(queroSerAlterado);
+			em.flush();
 
-			Estabelecimento recuperado = em.find(Estabelecimento.class, 1);
-			recuperado.setNome("Escola Magic");
+			Estabelecimento recuperado = em.find(Estabelecimento.class, queroSerAlterado.getId());
+			recuperado.setNome("Fui alterado...");
 
 			em.getTransaction().commit();
 
