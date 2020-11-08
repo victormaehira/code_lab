@@ -12,6 +12,8 @@
         <class>br.com.lab.smartcity.domain.ContratoAluguel</class>
         <class>br.com.lab.smartcity.domain.Cliente</class>
         <class>br.com.lab.smartcity.domain.Pessoa</class>
+        <class>br.com.lab.smartcity.domain.Avaliacao</class>
+         <!--  <class>br.com.lab.smartcity.domain.AvaliacaoId</class> -->
 
         <properties>
         
