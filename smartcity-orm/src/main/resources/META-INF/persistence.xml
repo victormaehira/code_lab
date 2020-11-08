@@ -15,7 +15,7 @@
         <class>br.com.lab.smartcity.domain.PessoaFisica</class>
         <class>br.com.lab.smartcity.domain.PessoaJuridica</class>
         <class>br.com.lab.smartcity.domain.Avaliacao</class>
-         <!--  <class>br.com.lab.smartcity.domain.AvaliacaoId</class> -->
+        <!--  <class>br.com.lab.smartcity.domain.AvaliacaoId</class> -->
 
         <properties>
         

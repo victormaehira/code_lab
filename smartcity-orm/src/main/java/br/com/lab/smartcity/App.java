@@ -1,6 +1,7 @@
 package br.com.lab.smartcity;
 
 import br.com.lab.smartcity.tests.CadastroEstabelecimentoTipoTest;
+import br.com.lab.smartcity.tests.CreateAvaliacaoIdTest;
 import br.com.lab.smartcity.tests.CreateEntityManagerTest;
 import br.com.lab.smartcity.tests.CreateEstabelecimentoTest;
 import br.com.lab.smartcity.tests.CreatePessoaTest;
@@ -22,6 +23,7 @@ public class App
 		DeleteEstabelecimentoTest.test();
 		CadastroEstabelecimentoTipoTest.test();
 		CreatePessoaTest.test();
+		CreateAvaliacaoIdTest.test();
 		System.out.println("Fim");
 		System.exit(0);
 	}
