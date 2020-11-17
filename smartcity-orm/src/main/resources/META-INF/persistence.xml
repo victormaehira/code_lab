@@ -15,6 +15,12 @@
         <class>br.com.lab.smartcity.domain.PessoaFisica</class>
         <class>br.com.lab.smartcity.domain.PessoaJuridica</class>
         <class>br.com.lab.smartcity.domain.Avaliacao</class>
+        <class>br.com.lab.smartcity.domain.Animal</class>
+        <class>br.com.lab.smartcity.domain.Cachorro</class>
+        <class>br.com.lab.smartcity.domain.Passaro</class>
+        <class>br.com.lab.smartcity.domain.Veiculo</class>
+        <class>br.com.lab.smartcity.domain.Carro</class>
+        <class>br.com.lab.smartcity.domain.Moto</class>
         <!--  <class>br.com.lab.smartcity.domain.AvaliacaoId</class> -->
 
         <properties>

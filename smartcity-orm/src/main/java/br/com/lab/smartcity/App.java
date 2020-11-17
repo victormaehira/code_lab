@@ -5,6 +5,8 @@ import br.com.lab.smartcity.tests.CreateAvaliacaoIdTest;
 import br.com.lab.smartcity.tests.CreateEntityManagerTest;
 import br.com.lab.smartcity.tests.CreateEstabelecimentoTest;
 import br.com.lab.smartcity.tests.CreatePessoaTest;
+import br.com.lab.smartcity.tests.CreateSingleTableTest;
+import br.com.lab.smartcity.tests.CreateTablePerClassTest;
 import br.com.lab.smartcity.tests.DeleteEstabelecimentoTest;
 import br.com.lab.smartcity.tests.FindEstabelecimentoTest;
 import br.com.lab.smartcity.tests.UpdateEstabelecimentoTest;
@@ -24,6 +26,8 @@ public class App
 		CadastroEstabelecimentoTipoTest.test();
 		CreatePessoaTest.test();
 		CreateAvaliacaoIdTest.test();
+		CreateTablePerClassTest.test();
+		CreateSingleTableTest.test();
 		System.out.println("Fim");
 		System.exit(0);
 	}

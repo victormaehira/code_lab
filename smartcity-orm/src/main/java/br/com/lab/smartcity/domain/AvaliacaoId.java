@@ -10,6 +10,11 @@ public class AvaliacaoId implements Serializable {
 	/**
 	 * 
 	 */
+	private static final long serialVersionUID = -7669952331549005764L;
+
+	/**
+	 * 
+	 */
 	//private static final long serialVersionUID = 1L;
 
 	@Column(name = "id_usuario")

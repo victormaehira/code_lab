@@ -3,7 +3,6 @@ package br.com.lab.smartcity.tests;
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 
-import br.com.lab.smartcity.domain.Estabelecimento;
 import br.com.lab.smartcity.domain.Pessoa;
 
 public class CreatePessoaTest {
