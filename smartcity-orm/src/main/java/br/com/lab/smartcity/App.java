@@ -9,6 +9,7 @@ import br.com.lab.smartcity.tests.CreateSingleTableTest;
 import br.com.lab.smartcity.tests.CreateTablePerClassTest;
 import br.com.lab.smartcity.tests.DeleteEstabelecimentoTest;
 import br.com.lab.smartcity.tests.FindEstabelecimentoTest;
+import br.com.lab.smartcity.tests.GenericDAOTest;
 import br.com.lab.smartcity.tests.UpdateEstabelecimentoTest;
 
 /**
@@ -28,6 +29,7 @@ public class App
 		CreateAvaliacaoIdTest.test();
 		CreateTablePerClassTest.test();
 		CreateSingleTableTest.test();
+		GenericDAOTest.test();
 		System.out.println("Fim");
 		System.exit(0);
 	}
