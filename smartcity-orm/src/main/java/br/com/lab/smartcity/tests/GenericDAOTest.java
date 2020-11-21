@@ -44,7 +44,6 @@ public class GenericDAOTest {
 			if (em != null) {
 				em.close();
 			}
-			System.exit(0);
 		}
 	}
 }
