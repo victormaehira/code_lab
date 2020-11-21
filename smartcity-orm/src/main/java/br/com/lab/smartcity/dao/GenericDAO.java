@@ -27,6 +27,7 @@ public abstract class GenericDAO<E,C> {
 		CriteriaQuery<E> query = this.em.getCriteriaBuilder().createQuery(this.classeEntidade);
 		CriteriaQuery<E> select = query.select(query.from(this.classeEntidade));
 		 
+		//return em.createQuery("from " + classeEntidade.getName()).getResultList();
 		return this.em.createQuery(query.select(query.from(this.classeEntidade))).getResultList();
 	}
 	
