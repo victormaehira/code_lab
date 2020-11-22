@@ -10,6 +10,7 @@ import br.com.lab.smartcity.tests.CreateTablePerClassTest;
 import br.com.lab.smartcity.tests.DeleteEstabelecimentoTest;
 import br.com.lab.smartcity.tests.FindEstabelecimentoTest;
 import br.com.lab.smartcity.tests.GenericDAOTest;
+import br.com.lab.smartcity.tests.TipoEstabelecimentoDaoListOrdenadoPorNomeTest;
 import br.com.lab.smartcity.tests.TipoEstabelecimentoDaoListTest;
 import br.com.lab.smartcity.tests.UpdateEstabelecimentoTest;
 
@@ -32,6 +33,7 @@ public class App
 		CreateSingleTableTest.test();
 		GenericDAOTest.test();
 		TipoEstabelecimentoDaoListTest.test();
+		TipoEstabelecimentoDaoListOrdenadoPorNomeTest.test();
 		System.out.println("Fim");
 		System.exit(0);
 	}
