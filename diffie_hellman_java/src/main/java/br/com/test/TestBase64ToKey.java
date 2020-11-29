@@ -1,0 +1,38 @@
+package br.com.test;
+
+import java.security.InvalidKeyException;
+import java.security.KeyFactory;
+import java.security.NoSuchAlgorithmException;
+import java.security.NoSuchProviderException;
+import java.security.PublicKey;
+import java.security.spec.InvalidKeySpecException;
+import java.security.spec.X509EncodedKeySpec;
+import java.util.Base64;
+
+public class TestBase64ToKey {
+	public static void main(String[] args)
+			throws NoSuchAlgorithmException, InvalidKeySpecException, InvalidKeyException, NoSuchProviderException {
+		String pubKeyBase64Original = "MIICKTCCARsGCSqGSIb3DQEDATCCAQwCggEBAMGZ0UEGh8q1BIZXmVx0kIZIcTheujcCfmuUQeAuVKzSds7CZ2GbsuAzBTXvZwQGQRfADTcEPRTh68Cl8D5xmnvykWzGpNJzcKxWl6XzBWFBShecf7+V09cgxTThxkQBKEFsJcdZF/GkE+Tu9Irlo5Kl/3Bdcz0BifZYx3TZwQ6JoMh5eVB4q6rOvm92cSiXqeqLkcUAXBEkKs1Xy6RldguAHEpxUJt2zDAQz8wR/skImaAZCHq3YGMOlsI4ELK4DkQCptSVkfMbL+cPRvhfnPTEOePYO2IcX/SaR63AEe5vchxnEa3oqZMN9p9wXWPB+zRqUr5rFxabetR7Xf0vH2MCAQICAgQAA4IBBgACggEBAL4Dh1lB/JZFWfoimsoAYsrtOmXMVchDr0/R2quhhfsVneVZ6jT2qnJa+7nHHKKC0QbKLWEV8alVetrxYeLrJa/9dIA13FXvbIPEB1Tr8C4GmHJwYSr7Uct3y+tDl4LhdIwR//DmBUr99AYedmOjf1D7jsAc74yrA/VXfPJ4p4hKyLYIp2Sq+H7fw9Es5JxKTApHwb/QOr6wWV6jlTaDtrottlwzrvh+gteQrLoDjrWyn7RBPuHRX6Mtoc0O8+X7cQ6qSFdyFhyIE5npoZeIvOmts5CW9BHpaUjaDcWFcD2Y/4bIH2kEjcAH6kIbfNF4GxrwvdadmB7nGz1x2JE4YzA=";
+		//String privKeyBase64 = "MIIBqQIBADCCARsGCSqGSIb3DQEDATCCAQwCggEBAMGZ0UEGh8q1BIZXmVx0kIZIcTheujcCfmuUQeAuVKzSds7CZ2GbsuAzBTXvZwQGQRfADTcEPRTh68Cl8D5xmnvykWzGpNJzcKxWl6XzBWFBShecf7+V09cgxTThxkQBKEFsJcdZF/GkE+Tu9Irlo5Kl/3Bdcz0BifZYx3TZwQ6JoMh5eVB4q6rOvm92cSiXqeqLkcUAXBEkKs1Xy6RldguAHEpxUJt2zDAQz8wR/skImaAZCHq3YGMOlsI4ELK4DkQCptSVkfMbL+cPRvhfnPTEOePYO2IcX/SaR63AEe5vchxnEa3oqZMN9p9wXWPB+zRqUr5rFxabetR7Xf0vH2MCAQICAgQABIGEAoGBAIIV2RPnja8WdfRQbo8oKSr+POwnrLwpFn7tUkyjzwfvdr8mH6NnB/r9F1181gkk6GLMdjKPXcN3IQnTOpY+HO2gUFi7CdaTStedNm0C38A4BmcRnNMupNlF3e+8iOxs/EO3rv2sJ/mAhpIT3p1Vnq+v/OZ/3k4cMyn9O/D29GL3";
+		String privKeyBase64 = "MIIBqQIBADCCARsGCSqGSIb3DQEDATCCAQwCggEBAMGZ0UEGh8q1BIZXmVx0kIZIcTheujcCfmuUQeAuVKzSds7CZ2GbsuAzBTXvZwQGQRfADTcEPRTh68Cl8D5xmnvykWzGpNJzcKxWl6XzBWFBShecf7+V09cgxTThxkQBKEFsJcdZF/GkE+Tu9Irlo5Kl/3Bdcz0BifZYx3TZwQ6JoMh5eVB4q6rOvm92cSiXqeqLkcUAXBEkKs1Xy6RldguAHEpxUJt2zDAQz8wR/skImaAZCHq3YGMOlsI4ELK4DkQCptSVkfMbL+cPRvhfnPTEOePYO2IcX/SaR63AEe5vchxnEa3oqZMN9p9wXWPB+zRqUr5rFxabetR7Xf0vH2MCAQICAgQABIGEAoGBAJkItt2UMZhK2dZrlnQm7lkcNu7Jja5IWhtapbdRnaaOIdgFimX7We4+jQVXSwqbElzujuhVytVbvvA/yTXNeNBU/UOOXC+C+M1V94A4Tb2cnX9s3i8lObhAdlQbOHoJKeuRhf3vdf0c4QcNGHusynIUUvqHMtG9RJM0UcDJ9g4o";
+		String pubKeyBase64Other = "MIICKTCCARsGCSqGSIb3DQEDATCCAQwCggEBAMGZ0UEGh8q1BIZXmVx0kIZIcTheujcCfmuUQeAuVKzSds7CZ2GbsuAzBTXvZwQGQRfADTcEPRTh68Cl8D5xmnvykWzGpNJzcKxWl6XzBWFBShecf7+V09cgxTThxkQBKEFsJcdZF/GkE+Tu9Irlo5Kl/3Bdcz0BifZYx3TZwQ6JoMh5eVB4q6rOvm92cSiXqeqLkcUAXBEkKs1Xy6RldguAHEpxUJt2zDAQz8wR/skImaAZCHq3YGMOlsI4ELK4DkQCptSVkfMbL+cPRvhfnPTEOePYO2IcX/SaR63AEe5vchxnEa3oqZMN9p9wXWPB+zRqUr5rFxabetR7Xf0vH2MCAQICAgQAA4IBBgACggEBAIyr86FvNVedfQfFaihIa885aoVCIp0xl6VPvPAiFO7ZZNXqw4Wbbrozf9xlIhkcn0RDhxuZySY3JZJLmx1zxIZRv2LRl6x1eEkk51jkX+tbyAaxVJwH9TSqBJB1zFQXUqQm4q92sSoeVn2SZGRQ19R7EhERXzGf/hiQCndCqRNBoPxe2e7+MiBI2YboPOj1v/TMc4NcEHomjbah4xhM9AvMmQoiA03JWvyqr5VZdDRxEe4xKbkn31QMzuhx2jioU2cGMsyUjoApcA3FehqXgtaX9UhPpDHQga9O5d8xkM38gvGk861uuoiaYhiYGjIEnWZUV32hW/6iPJWkXLW7ECk=";
+
+		KeyFactory kf = KeyFactory.getInstance("DH");
+		byte pubKeyOther[] = Base64.getDecoder().decode(pubKeyBase64Other);
+		X509EncodedKeySpec pksOther = new X509EncodedKeySpec(pubKeyOther);
+		PublicKey publicKeyOther = kf.generatePublic(pksOther);
+
+		KeyFactory kfpub = KeyFactory.getInstance("DH");
+		byte pubKey[] = Base64.getDecoder().decode(pubKeyBase64Original);
+		X509EncodedKeySpec pksPubKey = new X509EncodedKeySpec(pubKey);
+		PublicKey publicKey = kfpub.generatePublic(pksPubKey);
+		
+		/*
+		KeyFactory kfpriv = KeyFactory.getInstance("DH");
+		byte privKey[] = Base64.getDecoder().decode(privKeyBase64);
+		X509EncodedKeySpec pksPrivKey = new X509EncodedKeySpec(privKey);
+		PrivateKey privateKey = kfpriv.generatePrivate(pksPrivKey);
+		*/
+
+	}
+}
