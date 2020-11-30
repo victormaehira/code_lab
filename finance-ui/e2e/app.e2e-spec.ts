@@ -1,10 +1,10 @@
-import { AlgamoneyUiPage } from './app.po';
+import { MeuprojetoPage } from './app.po';
 
-describe('algamoney-ui App', () => {
-  let page: AlgamoneyUiPage;
+describe('meuprojeto App', () => {
+  let page: MeuprojetoPage;
 
   beforeEach(() => {
-    page = new AlgamoneyUiPage();
+    page = new MeuprojetoPage();
   });
 
   it('should display welcome message', () => {

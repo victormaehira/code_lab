@@ -1,7 +1,4 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-
-import { ToastyConfig } from 'ng2-toasty';
 
 @Component({
   selector: 'app-root',
@@ -9,16 +6,18 @@ import { ToastyConfig } from 'ng2-toasty';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  nome = 'Thiago';
 
-  constructor(
-    private toastyConfig: ToastyConfig,
-    private router: Router
-  ) {
-    this.toastyConfig.theme = 'bootstrap';
+  adicionar() {
+    console.log(`Adicionando ${this.nome}`);
+
+    const numero = Math.round(Math.random() * 100);
+    this.nome = 'João ' + numero;
   }
 
-  exibindoNavbar() {
-    return this.router.url !== '/login';
+  alterarNome(event: any) {
+    // console.log(event);
+    this.nome = event.target.value;
   }
 
 }
