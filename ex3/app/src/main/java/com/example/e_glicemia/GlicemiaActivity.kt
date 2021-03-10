@@ -1,9 +1,11 @@
 package com.example.e_glicemia
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Parcel
 import android.os.Parcelable
+import android.widget.Toast
 import com.example.e_glicemia.model.Glicemia
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -34,6 +36,13 @@ class GlicemiaActivity() : AppCompatActivity() {
 
         db.collection("glicemias")
             .add(glicemia)
+            .addOnSuccessListener {
+                Toast.makeText(this@GlicemiaActivity, "Inserido com sucesso ", Toast.LENGTH_LONG).show()
+                startActivity(Intent(this@GlicemiaActivity, MainActivity::class.java))
+            }
+            .addOnFailureListener {
+                Toast.makeText(this@GlicemiaActivity, "Falha ao adicionar", Toast.LENGTH_SHORT).show()
+            }
     }
 
 }
