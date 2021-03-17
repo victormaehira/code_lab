@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "157806853678",
+    "project_id": "e-glicemia",
+    "storage_bucket": "e-glicemia.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:157806853678:android:f68b638f1d55dea20fa9bf",
+        "android_client_info": {
+          "package_name": "com.example.e_glicemia"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "157806853678-npjtao0blm234mdohnbrne7hcv6vj2s3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCrdA7FafcY2fwwNE0o_ZBHtzE10iyFjHU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "157806853678-npjtao0blm234mdohnbrne7hcv6vj2s3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
