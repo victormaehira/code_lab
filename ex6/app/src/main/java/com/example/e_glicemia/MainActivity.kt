@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -18,6 +19,8 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.list_glicemia_single.*
+import kotlinx.android.synthetic.main.list_glicemia_single.view.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -67,6 +70,15 @@ class MainActivity : AppCompatActivity() {
             val textView = view.findViewById<TextView>(R.id.textViewListGlicemiaValor)
             textView.text = valor.toString()
         }
+
+        internal fun setDeleteId(id: String) {
+            val imageButton: ImageButton = view.findViewById<ImageButton>(R.id.imageButtonListGlicemiaDelete)
+            imageButton.setOnClickListener {
+                deleteGlicemia(id)
+            }
+        }
+
+
     }
     private inner class GlicemiaFirestoreRecyclerAdapter internal constructor(options: FirestoreRecyclerOptions<Glicemia>) : FirestoreRecyclerAdapter<Glicemia, GlicemiaViewHolder>(options) {
         override fun onBindViewHolder(glicemiaViewHolder: GlicemiaViewHolder, position: Int, glicemia: Glicemia) {
@@ -74,21 +86,24 @@ class MainActivity : AppCompatActivity() {
             glicemiaViewHolder.setHora(glicemia.hora)
             glicemiaViewHolder.setValor(glicemia.valor)
             val documentId = snapshots.getSnapshot(position).id
+            glicemiaViewHolder.setDeleteId(documentId)
+
             Log.d("TESTE"," documentId = " + documentId)
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GlicemiaViewHolder {
             val view = LayoutInflater.from(parent.context).inflate(R.layout.list_glicemia_single, parent, false)
+
             return GlicemiaViewHolder(view)
         }
     }
 
-    private fun deleteNote(id: String) {
+    private fun deleteGlicemia(id: String) {
         db!!.collection("glicemias")
             .document(id)
             .delete()
             .addOnCompleteListener {
-                Toast.makeText(applicationContext, "Note has been deleted!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(applicationContext, "Glicemia excluida com sucesso!", Toast.LENGTH_SHORT).show()
             }
     }
 
