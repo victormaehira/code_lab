@@ -1,23 +1,23 @@
 package com.example.e_glicemia
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.e_glicemia.model.Glicemia
+import com.firebase.ui.firestore.FirestoreRecyclerAdapter
+import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_main.*
-import com.example.e_glicemia.model.Glicemia
-import com.firebase.ui.firestore.FirestoreRecyclerAdapter
-import com.firebase.ui.firestore.FirestoreRecyclerOptions
-
 
 
 class MainActivity : AppCompatActivity() {
@@ -73,6 +73,8 @@ class MainActivity : AppCompatActivity() {
             glicemiaViewHolder.setData(glicemia.data)
             glicemiaViewHolder.setHora(glicemia.hora)
             glicemiaViewHolder.setValor(glicemia.valor)
+            val documentId = snapshots.getSnapshot(position).id
+            Log.d("TESTE"," documentId = " + documentId)
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GlicemiaViewHolder {
@@ -80,6 +82,17 @@ class MainActivity : AppCompatActivity() {
             return GlicemiaViewHolder(view)
         }
     }
+
+    private fun deleteNote(id: String) {
+        db!!.collection("glicemias")
+            .document(id)
+            .delete()
+            .addOnCompleteListener {
+                Toast.makeText(applicationContext, "Note has been deleted!", Toast.LENGTH_SHORT).show()
+            }
+    }
+
+
     override fun onStart() {
         super.onStart()
         adapter!!.startListening()

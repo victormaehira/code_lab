@@ -24,12 +24,13 @@ class GlicemiaActivity() : AppCompatActivity() {
             val hora = editTextTimeGlicemia.text.toString()
             val valor = editTextNumberGlicemia.text.toString().toInt()
 
-            valor.adicionar(data, hora, valor)
+            //valor.adicionar(data, hora, valor)
+            adicionar(data, hora, valor)
         }
     }
 
 
-    private fun Int.adicionar(data: String, hora: String, valor: Int) {
+    private fun adicionar(data: String, hora: String, valor: Int) {
         val currentUser = Firebase.auth.currentUser!!
 
         val glicemia = Glicemia(userId = currentUser.uid, userName = currentUser.displayName, data = data, hora = hora, valor = valor)
