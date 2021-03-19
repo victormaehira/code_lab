@@ -23,4 +23,13 @@
         android:text="TextView"
         app:layout_constraintStart_toEndOf="@+id/textViewListGlicemiaDia"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewListGlicemiaValor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="TextView"
+        app:layout_constraintStart_toEndOf="@+id/textViewListGlicemiaHora"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

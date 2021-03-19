@@ -63,11 +63,16 @@ class MainActivity : AppCompatActivity() {
             val textView = view.findViewById<TextView>(R.id.textViewListGlicemiaHora)
             textView.text = hora
         }
+        internal fun setValor(valor: Int) {
+            val textView = view.findViewById<TextView>(R.id.textViewListGlicemiaValor)
+            textView.text = valor.toString()
+        }
     }
     private inner class GlicemiaFirestoreRecyclerAdapter internal constructor(options: FirestoreRecyclerOptions<Glicemia>) : FirestoreRecyclerAdapter<Glicemia, GlicemiaViewHolder>(options) {
         override fun onBindViewHolder(glicemiaViewHolder: GlicemiaViewHolder, position: Int, glicemia: Glicemia) {
             glicemiaViewHolder.setData(glicemia.data)
             glicemiaViewHolder.setHora(glicemia.hora)
+            glicemiaViewHolder.setValor(glicemia.valor)
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GlicemiaViewHolder {
