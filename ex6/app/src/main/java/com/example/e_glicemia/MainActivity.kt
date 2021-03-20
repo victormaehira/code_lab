@@ -78,6 +78,12 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        internal fun setEditId(id: String) {
+            val imageButton: ImageButton = view.findViewById<ImageButton>(R.id.imageButtonListGlicemiaEdit)
+            imageButton.setOnClickListener {
+                updateGlicemia(id)
+            }
+        }
 
     }
     private inner class GlicemiaFirestoreRecyclerAdapter internal constructor(options: FirestoreRecyclerOptions<Glicemia>) : FirestoreRecyclerAdapter<Glicemia, GlicemiaViewHolder>(options) {
@@ -87,6 +93,7 @@ class MainActivity : AppCompatActivity() {
             glicemiaViewHolder.setValor(glicemia.valor)
             val documentId = snapshots.getSnapshot(position).id
             glicemiaViewHolder.setDeleteId(documentId)
+            glicemiaViewHolder.setEditId(documentId)
 
             Log.d("TESTE"," documentId = " + documentId)
         }
@@ -105,6 +112,12 @@ class MainActivity : AppCompatActivity() {
             .addOnCompleteListener {
                 Toast.makeText(applicationContext, "Glicemia excluida com sucesso!", Toast.LENGTH_SHORT).show()
             }
+    }
+
+    private fun updateGlicemia(id: String) {
+        val intent = Intent(this, GlicemiaActivity::class.java)
+        intent.putExtra("glicemiaId", id)
+        startActivity(intent)
     }
 
 
