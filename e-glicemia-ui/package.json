@@ -1,0 +1,34 @@
+{
+  "name": "react-wygwgm",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "axios": "^0.18.0",
+    "react": "16.5.0",
+    "react-dom": "16.5.0",
+    "react-redux": "^6.0.0",
+    "redux": "^4.0.1",
+    "redux-saga": "0.16.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "react-scripts": "latest"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
