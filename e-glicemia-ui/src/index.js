@@ -1,35 +1,16 @@
-import React, { Component } from 'react';
-import { render } from 'react-dom';
-import Hello from './Hello';
-import './style.css';
-import Users from './Users';
-import { Provider } from 'react-redux';
-import { getStore } from './store';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
 
-const store = getStore();
 
-class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      name: 'React',
-      users: []
-    };
-  }
+ReactDOM.render(
+  //<React.StrictMode>
+    <App />,
+  //</React.StrictMode>,
+  document.getElementById('root')
+);
 
-  render() {
-    return (
-      <Provider store={store}>
-        <div>
-          <Hello name={this.state.nome} />
-          <h1 >
-          React, Redux and Redux saga all CRUD operations!!
-        </h1>
-          <Users users={this.state.users} />
-        </div>
-      </Provider>
-    );
-  }
-}
 
-render(<App />, document.getElementById('root'));
+
+
