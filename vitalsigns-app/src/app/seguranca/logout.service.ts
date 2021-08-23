@@ -6,8 +6,8 @@ import { Injectable } from '@angular/core';
 export class LogoutService {
 
   // tokensRenokeUrl = 'http://localhost:8080/tokens/revoke';
-  tokensRenokeUrl = 'http://vitalsigns-api-e-glicemia.apps.na46.prod.nextcle.com/revoke';
-  // tokensRenokeUrl = 'https://victor-eglicemia.herokuapp.com/tokens/revoke';
+  // tokensRenokeUrl = 'http://vitalsigns-api-e-glicemia.apps.na46.prod.nextcle.com/tokens/revoke';
+  tokensRenokeUrl = 'https://victor-eglicemia.herokuapp.com/tokens/revoke';
 
   constructor(
     private http: AuthHttp,

@@ -8,8 +8,8 @@ import 'rxjs/add/operator/toPromise';
 export class AuthService {
 
   // oauthTokenUrl = 'http://localhost:8080/oauth/token';
-  oauthTokenUrl = 'http://vitalsigns-api-e-glicemia.apps.na46.prod.nextcle.com/token';
-  // oauthTokenUrl = 'https://victor-eglicemia.herokuapp.com/oauth/token';
+  // oauthTokenUrl = 'http://vitalsigns-api-e-glicemia.apps.na46.prod.nextcle.com/oauth/token';
+  oauthTokenUrl = 'https://victor-eglicemia.herokuapp.com/oauth/token';
   jwtPayload: any;
 
   constructor(

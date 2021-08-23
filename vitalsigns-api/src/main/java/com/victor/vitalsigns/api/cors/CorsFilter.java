@@ -23,7 +23,7 @@ import com.victor.vitalsigns.api.config.property.VitalSignsApiProperty;
 public class CorsFilter implements Filter {
 
 	@Autowired
-	private VitalSignsApiProperty algamoneyApiProperty;
+	private VitalSignsApiProperty vitalSignsApiProperty;
 	
 	@Override
 	public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain)
@@ -32,12 +32,12 @@ public class CorsFilter implements Filter {
 		HttpServletRequest request = (HttpServletRequest) req;
 		HttpServletResponse response = (HttpServletResponse) resp;
 		
-		response.setHeader("Access-Control-Allow-Origin", algamoneyApiProperty.getOriginPermitida());
+		response.setHeader("Access-Control-Allow-Origin", vitalSignsApiProperty.getOriginPermitida());
 		//response.setHeader("Access-Control-Allow-Origin", "*");
 		//response.setHeader("Access-Control-Allow-Origin", "http://localhost:4200");
         response.setHeader("Access-Control-Allow-Credentials", "true");
 		
-		if ("OPTIONS".equals(request.getMethod()) && algamoneyApiProperty.getOriginPermitida().equals(request.getHeader("Origin"))) {
+		if ("OPTIONS".equals(request.getMethod()) && vitalSignsApiProperty.getOriginPermitida().equals(request.getHeader("Origin"))) {
 			response.setHeader("Access-Control-Allow-Methods", "POST, GET, DELETE, PUT, OPTIONS");
         	response.setHeader("Access-Control-Allow-Headers", "Authorization, Content-Type, Accept");
         	response.setHeader("Access-Control-Max-Age", "3600");

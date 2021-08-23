@@ -16,8 +16,8 @@ export class PessoaFiltro {
 export class PessoaService {
 
   // pessoasUrl = 'http://localhost:8080/pessoas';
-  pessoasUrl = 'http://vitalsigns-api-e-glicemia.apps.na46.prod.nextcle.com/pessoas';
-  // pessoasUrl = 'https://victor-eglicemia.herokuapp.com/pessoas';
+  // pessoasUrl = 'http://vitalsigns-api-e-glicemia.apps.na46.prod.nextcle.com/pessoas';
+  pessoasUrl = 'https://victor-eglicemia.herokuapp.com/pessoas';
 
   constructor(private http: AuthHttp) { }
 

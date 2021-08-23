@@ -22,7 +22,9 @@
         <button pButton type="submit" label="Login" [disabled]="!f.valid" class="button"
           (click)="login(usuario.value, senha.value); senha.value = '';"></button>
       </div>
-
+      <div style="text-align: center;">
+        <i>Obs: esta versão está usando a API de contingência do Heroku</i>
+      </div>
     </div>
   </form>
 

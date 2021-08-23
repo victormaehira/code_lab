@@ -2,7 +2,6 @@ package com.victor.vitalsigns.api.config.property;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
-//@ConfigurationProperties("algamoney")
 @ConfigurationProperties("vitalsigns")
 public class VitalSignsApiProperty {
 

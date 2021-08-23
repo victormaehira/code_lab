@@ -19,8 +19,8 @@ export class LancamentoFiltro {
 export class LancamentoService {
 
   // lancamentosUrl = 'http://localhost:8080/lancamentos';
-  lancamentosUrl = 'http://vitalsigns-api-e-glicemia.apps.na46.prod.nextcle.com/lancamentos';
-  // lancamentosUrl = 'https://victor-eglicemia.herokuapp.com/lancamentos';
+  //lancamentosUrl = 'http://vitalsigns-api-e-glicemia.apps.na46.prod.nextcle.com/lancamentos';
+  lancamentosUrl = 'https://victor-eglicemia.herokuapp.com/lancamentos';
 
   constructor(private http: AuthHttp) { }
 

@@ -19,13 +19,13 @@ import com.victor.vitalsigns.api.config.property.VitalSignsApiProperty;
 public class TokenResource {
 	
 	@Autowired
-	private VitalSignsApiProperty algamoneyApiProperty;
+	private VitalSignsApiProperty vitalSignsApiProperty;
 
 	@DeleteMapping("/revoke")
 	public void revoke(HttpServletRequest req, HttpServletResponse resp) {
 		Cookie cookie = new Cookie("refreshToken", null);
 		cookie.setHttpOnly(true);
-		cookie.setSecure(algamoneyApiProperty.getSeguranca().isEnableHttps());
+		cookie.setSecure(vitalSignsApiProperty.getSeguranca().isEnableHttps());
 		cookie.setPath(req.getContextPath() + "/oauth/token");
 		cookie.setMaxAge(0);
 		

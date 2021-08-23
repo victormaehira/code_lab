@@ -25,7 +25,7 @@ import com.victor.vitalsigns.api.config.property.VitalSignsApiProperty;
 public class RefreshTokenPostProcessor implements ResponseBodyAdvice<OAuth2AccessToken> {
 
 	@Autowired
-	private VitalSignsApiProperty algamoneyApiProperty;
+	private VitalSignsApiProperty vitalSignsApiProperty;
 	
 	@Override
 	public boolean supports(MethodParameter returnType, Class<? extends HttpMessageConverter<?>> converterType) {
@@ -56,7 +56,7 @@ public class RefreshTokenPostProcessor implements ResponseBodyAdvice<OAuth2Acces
 	private void adicionarRefreshTokenNoCookie(String refreshToken, HttpServletRequest req, HttpServletResponse resp) {
 		Cookie refreshTokenCookie = new Cookie("refreshToken", refreshToken);
 		refreshTokenCookie.setHttpOnly(true);
-		refreshTokenCookie.setSecure(algamoneyApiProperty.getSeguranca().isEnableHttps());
+		refreshTokenCookie.setSecure(vitalSignsApiProperty.getSeguranca().isEnableHttps());
 		refreshTokenCookie.setPath(req.getContextPath() + "/oauth/token");
 		refreshTokenCookie.setMaxAge(2592000);
 		resp.addCookie(refreshTokenCookie);
