@@ -15,7 +15,7 @@ spec:
         app: poc-victor-gke 
     spec:
       containers:
-      - name: webapp
+      - name: poc-victor-gke
         image: gcr.io/poc-identificacao/poc-victor-gke
         ports:
         - containerPort: 8080
