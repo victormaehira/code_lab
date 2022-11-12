@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: poc-victor-gke-deployment
+  labels:
+    app: poc-victor-gke
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: poc-victor-gke 
+  template:
+    metadata:
+      labels:
+        app: poc-victor-gke 
+    spec:
+      containers:
+      - name: webapp
+        image: gcr.io/poc-identificacao/poc-victor-gke
+        ports:
+        - containerPort: 8080
