@@ -1,0 +1,14 @@
+apiVersion: monitoring.googleapis.com/v1
+kind: PodMonitoring
+metadata:
+  name: poc-victor-gke
+  labels:
+    app.kubernetes.io/name: poc-victor-gke
+spec:
+  selector:
+    matchLabels:
+      app: poc-victor-gke
+  endpoints:
+  - port: 8080
+    path: /actuator/prometheus
+    interval: 30s
